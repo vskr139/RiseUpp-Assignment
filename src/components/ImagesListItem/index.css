@@ -1,0 +1,14 @@
+.image-list-item {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-container {
+  width: 23%;
+  margin-bottom: 30px;
+}
+.image {
+  width: 100%;
+  height: 150px;
+}
