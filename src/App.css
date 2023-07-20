@@ -39,4 +39,10 @@ body {
   cursor: pointer;
   outline: none;
   background-color: orangered;
+  opacity: 0.8;
+}
+.tab-list-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
 }

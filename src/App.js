@@ -2,10 +2,31 @@ import {Component} from 'react'
 
 import {FiSearch} from 'react-icons/fi'
 
+import TabItem from './components/TabItem'
+
 import './App.css'
 
+const tabItemsList = [
+  {
+    id: 'mountain',
+    tabName: 'Mountain',
+  },
+  {
+    id: 'flowers',
+    tabName: 'Flowers',
+  },
+  {
+    id: 'beaches',
+    tabName: 'Beaches',
+  },
+  {
+    id: 'cities',
+    tabName: 'Cities',
+  },
+]
+
 class App extends Component {
-  state = {imagesData: []}
+  state = {imagesData: [], activeTabId: ''}
 
   componentDidMount() {
     this.getImagesData()
@@ -23,7 +44,12 @@ class App extends Component {
     console.log(jsonData)
   }
 
+  onChangingTabItem = id => {
+    this.setState({activeTabId: id})
+  }
+
   render() {
+    const {activeTabId} = this.state
     return (
       <div className="app-container">
         <img
@@ -40,6 +66,17 @@ class App extends Component {
             <FiSearch style={{color: 'darkblue'}} />
           </div>
         </div>
+        <ul className="tab-list-container">
+          {tabItemsList.map(tabItem => (
+            <TabItem
+              key={tabItem.id}
+              tabItemDetails={tabItem}
+              tabSelect={activeTabId === tabItem.id}
+              tabId={tabItem.id}
+              onChangingTabItem={this.onChangingTabItem}
+            />
+          ))}
+        </ul>
       </div>
     )
   }
