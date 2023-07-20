@@ -18,8 +18,25 @@ body {
 }
 .search-box-container {
   display: flex;
-  align-items: center;
 }
 .search-input {
   padding: 10px 10px 10px 20px;
+  border: 1px solid gainsboro;
+  font-family: 'Roboto';
+  color: lightslategray;
+  font-size: 15px;
+  width: 500px;
+  outline: none;
+  background-color: #efefef;
+}
+.search-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  outline: none;
+  background-color: orangered;
 }

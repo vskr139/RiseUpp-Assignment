@@ -37,7 +37,7 @@ class App extends Component {
             className="search-input"
           />
           <div className="search-icon-container">
-            <FiSearch />
+            <FiSearch style={{color: 'darkblue'}} />
           </div>
         </div>
       </div>
