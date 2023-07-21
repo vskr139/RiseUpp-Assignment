@@ -54,6 +54,11 @@ class App extends Component {
       id: eachCollection.id,
       title: eachCollection.title,
       previewPhotos: eachCollection.preview_photos,
+      description: eachCollection.cover_photo.alt_description,
+      height: eachCollection.cover_photo.height,
+      likes: eachCollection.cover_photo.likes,
+      name: eachCollection.cover_photo.user.name,
+      location: eachCollection.cover_photo.user.location,
     }))
     this.setState(prevState => ({
       imagesData: photosCollectionsData,

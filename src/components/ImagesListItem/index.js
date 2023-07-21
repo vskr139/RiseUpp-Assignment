@@ -2,7 +2,14 @@ import './index.css'
 
 const ImagesListItem = prop => {
   const {imageDetails} = prop
-  const {previewPhotos} = imageDetails
+  const {
+    previewPhotos,
+    description,
+    likes,
+    name,
+    location,
+    title,
+  } = imageDetails
   return (
     <li className="image-list-item">
       {previewPhotos.map(each => {
@@ -10,7 +17,23 @@ const ImagesListItem = prop => {
         return (
           <div className="image-container">
             <img src={urls.thumb} className="image" key={id} alt="thumbnail" />
-            <div className="popup">This is a popup</div>
+            <div className="popup">
+              <h1 className="popup-name">
+                {title.charAt(0).toUpperCase() + title.slice(1).toUpperCase()}
+              </h1>
+              <p>
+                Description: <span className="value">{description}</span>
+              </p>
+              <p>
+                Likes: <span className="value">{likes}</span>
+              </p>
+              <p>
+                Photographer Name: <span className="value">{name}</span>
+              </p>
+              <p>
+                Location: <span className="value">{location}</span>
+              </p>
+            </div>
           </div>
         )
       })}
