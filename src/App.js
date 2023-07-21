@@ -153,6 +153,7 @@ class App extends Component {
           <img
             src="https://media.licdn.com/dms/image/C560BAQGnZlUHAASEvw/company-logo_200_200/0/1669653906405?e=1697673600&v=beta&t=D0_aJFUJFuEbGSr1JLScYrh1tYbOUCKo-BL1lEZGYu8"
             alt="logo"
+            className="website-logo"
           />
           <div className="search-box-container">
             <input

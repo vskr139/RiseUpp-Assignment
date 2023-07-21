@@ -20,6 +20,14 @@
     margin-right: 20px;
   }
 }
+@media (max-width: 576px) {
+  .tab-button {
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+    width: 80px;
+    font-size: 13px;
+  }
+}
 .select {
   background-color: orangered;
   color: rgb(15, 19, 68);
