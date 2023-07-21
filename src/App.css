@@ -11,7 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .app-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,6 +60,11 @@ body {
   flex-direction: column;
   align-items: center;
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-container {
+    width: 80%;
+  }
+}
 .hr-line {
   width: 100%;
   height: 2px;
@@ -102,4 +107,37 @@ body {
   100% {
     background-position: 0 50%;
   }
+}
+.pagination-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.active-btn {
+  background-color: orangered;
+  border-width: 0px;
+  border-radius: 5px;
+  padding: 7px 20px 7px 20px;
+  outline: none;
+  font-family: 'Roboto';
+  color: rgb(15, 19, 68);
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.static-btn {
+  background-color: orangered;
+  border-width: 0px;
+  border-radius: 5px;
+  padding: 7px 20px 7px 20px;
+  outline: none;
+  font-family: 'Roboto';
+  color: rgb(15, 19, 68);
+  font-size: 15px;
+  font-weight: bold;
+  opacity: 0.5;
+  margin-left: 10px;
+  margin-right: 10px;
 }

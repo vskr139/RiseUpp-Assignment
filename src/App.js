@@ -34,6 +34,10 @@ class App extends Component {
     searchInput: '',
     activeState: 'Mountain',
     isLoading: false,
+    pageNavigateLeft: false,
+    pageNavigateRight: true,
+    currentIndex: 0,
+    dataSize: 2,
   }
 
   componentDidMount() {
@@ -94,6 +98,42 @@ class App extends Component {
     )
   }
 
+  checkPaginationValidator = () => {
+    const {imagesData, currentIndex, dataSize} = this.state
+    if (currentIndex > 0 && dataSize < imagesData.length) {
+      this.setState({pageNavigateLeft: true, pageNavigateRight: true})
+    } else if (currentIndex === 0 && dataSize < imagesData.length) {
+      this.setState({pageNavigateLeft: false, pageNavigateRight: true})
+    } else if (currentIndex > 0 && dataSize > imagesData.length) {
+      this.setState(prevState => ({
+        pageNavigateLeft: true,
+        pageNavigateRight: false,
+        currentIndex: prevState.currentIndex - 2,
+        dataSize: prevState.dataSize - 2,
+      }))
+    }
+  }
+
+  onClickingNextButton = () => {
+    this.setState(
+      prevState => ({
+        currentIndex: prevState.currentIndex + 2,
+        dataSize: prevState.dataSize + 2,
+      }),
+      this.checkPaginationValidator,
+    )
+  }
+
+  onClickingPrevButton = () => {
+    this.setState(
+      prevState => ({
+        currentIndex: prevState.currentIndex - 2,
+        dataSize: prevState.dataSize - 2,
+      }),
+      this.checkPaginationValidator,
+    )
+  }
+
   render() {
     const {
       imagesData,
@@ -101,8 +141,12 @@ class App extends Component {
       searchInput,
       activeState,
       isLoading,
+      pageNavigateLeft,
+      pageNavigateRight,
+      currentIndex,
+      dataSize,
     } = this.state
-    console.log(imagesData)
+    const navigatedData = imagesData.slice(currentIndex, dataSize)
     return (
       <div className="app-container">
         <div className="content-container">
@@ -146,7 +190,35 @@ class App extends Component {
               <div className="shimmer-spinner">{}</div>
             </div>
           ) : (
-            <ImagesDisplayContainer imagesList={imagesData} />
+            <ImagesDisplayContainer imagesList={navigatedData} />
+          )}
+        </div>
+        <div className="pagination-container">
+          {pageNavigateLeft ? (
+            <button
+              type="button"
+              className="active-btn"
+              onClick={this.onClickingPrevButton}
+            >
+              Prev
+            </button>
+          ) : (
+            <button type="button" className="static-btn">
+              Prev
+            </button>
+          )}
+          {pageNavigateRight ? (
+            <button
+              type="button"
+              className="active-btn"
+              onClick={this.onClickingNextButton}
+            >
+              Next
+            </button>
+          ) : (
+            <button type="button" className="static-btn">
+              Next
+            </button>
           )}
         </div>
       </div>

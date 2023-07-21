@@ -13,6 +13,11 @@
   height: 170px;
   margin-bottom: 30px;
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  .image {
+    height: 130px;
+  }
+}
 .image:hover + .popup {
   display: block;
 }
